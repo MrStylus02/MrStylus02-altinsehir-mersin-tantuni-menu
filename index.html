@@ -3,125 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Altınşehir Mersin Tantuni | QR Menü</title>
+<title>Altınşehir Mersin Tantuni</title>
 
-html {
-  scroll-behavior: smooth;
-}
-
-.hero {
-  animation: fadeDown 1s ease forwards;
-}
-
-.logo {
-  animation: logoPop 1.2s ease forwards;
-}
-
-h1, .slogan {
-  animation: fadeUp 1s ease forwards;
-}
-
-.nav {
-  animation: slideIn 0.9s ease forwards;
-}
-
-.card {
-  opacity: 0;
-  transform: translateY(35px);
-  animation: cardShow 0.9s ease forwards;
-}
-
-.card:nth-child(1) { animation-delay: 0.2s; }
-.card:nth-child(2) { animation-delay: 0.4s; }
-.card:nth-child(3) { animation-delay: 0.6s; }
-.card:nth-child(4) { animation-delay: 0.8s; }
-
-.item {
-  transition: 0.25s ease;
-}
-
-.item:hover {
-  transform: translateX(6px);
-  background: rgba(255, 191, 60, 0.08);
-}
-
-.nav a {
-  transition: 0.25s ease;
-}
-
-.nav a:hover {
-  background: #d89b1d;
-  color: #111;
-  transform: translateY(-2px);
-}
-
-.whatsapp {
-  animation: pulse 1.8s infinite;
-}
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-35px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes logoPop {
-  from {
-    opacity: 0;
-    transform: scale(0.75);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes cardShow {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-  }
-}
-  
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
@@ -131,6 +14,7 @@ body{
   color:white;
 }
 
+/* HERO */
 .hero{
   background:linear-gradient(rgba(60,0,0,.85),rgba(0,0,0,.9)),
   url("https://images.unsplash.com/photo-1604908177522-040be54b0f5f?auto=format&fit=crop&w=1600&q=80");
@@ -139,6 +23,8 @@ body{
   text-align:center;
   padding:25px 15px 35px;
   border-bottom:4px solid #d89b1d;
+
+  animation:fadeDown 1s ease forwards;
 }
 
 .top-info{
@@ -150,280 +36,233 @@ body{
   font-size:15px;
 }
 
-.top-info a{
-  color:white;
-  text-decoration:none;
-}
-
 .logo{
   width:220px;
-  max-width:80%;
-  margin:20px auto 10px;
+  margin:20px auto;
   display:block;
-  filter:drop-shadow(0 0 20px rgba(0,0,0,.8));
+  animation:logoPop 1.2s ease forwards;
 }
 
 h1{
   color:#ffcc55;
-  font-size:34px;
-  margin-top:8px;
+  font-size:32px;
+  animation:fadeUp 1s ease forwards;
 }
 
 .slogan{
-  font-size:22px;
-  color:white;
-  font-weight:bold;
+  font-size:20px;
   margin-top:8px;
+  animation:fadeUp 1.2s ease forwards;
 }
 
+/* NAV */
 .nav{
-  background:#151515;
   display:flex;
   justify-content:center;
-  gap:15px;
-  padding:14px;
+  gap:10px;
+  background:#151515;
+  padding:10px;
   position:sticky;
   top:0;
   z-index:10;
-  border-bottom:1px solid #333;
+
+  animation:slideIn 1s ease forwards;
 }
 
 .nav a{
   color:white;
   text-decoration:none;
-  background:#241b10;
   border:1px solid #d89b1d;
-  padding:10px 18px;
-  border-radius:30px;
-  font-weight:bold;
-  font-size:14px;
+  padding:8px 14px;
+  border-radius:20px;
+  transition:.3s;
 }
 
+.nav a:hover{
+  background:#d89b1d;
+  color:black;
+  transform:translateY(-2px);
+}
+
+/* MENU */
 .container{
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
-  padding:25px 15px;
+  padding:20px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  gap:15px;
 }
 
 .card{
-  background:linear-gradient(180deg,#181818,#0d0d0d);
-  border:1px solid #b87915;
-  border-radius:16px;
-  padding:18px;
-  box-shadow:0 0 18px rgba(0,0,0,.5);
+  background:#111;
+  border:1px solid #d89b1d;
+  border-radius:15px;
+  padding:15px;
+
+  opacity:0;
+  transform:translateY(30px);
+  animation:cardShow .8s ease forwards;
 }
+
+.card:nth-child(1){animation-delay:.2s}
+.card:nth-child(2){animation-delay:.4s}
+.card:nth-child(3){animation-delay:.6s}
+.card:nth-child(4){animation-delay:.8s}
 
 .card h2{
   text-align:center;
-  margin-bottom:18px;
   color:#ffbf3c;
-  font-size:22px;
+  margin-bottom:10px;
 }
 
 .item{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   border-bottom:1px dashed #444;
-  padding:13px 0;
-  gap:12px;
+  padding:10px 0;
+  transition:.2s;
 }
 
-.item:last-child{
-  border-bottom:none;
-}
-
-.name{
-  font-size:16px;
-  font-weight:bold;
+.item:hover{
+  transform:translateX(5px);
 }
 
 .price{
   color:#ffbf3c;
-  border:1px solid #b87915;
-  padding:5px 9px;
-  border-radius:8px;
-  font-weight:bold;
-  white-space:nowrap;
 }
 
-.et h2{color:#ff5555}
-.tavuk h2{color:#ff9f1c}
-.cig h2{color:#75d947}
-.icecek h2{color:#6ec6ff}
-
+/* FOOTER */
 .footer{
-  margin-top:30px;
-  background:#111;
-  border-top:1px solid #333;
-  padding:25px 15px;
   text-align:center;
+  padding:20px;
+  background:#111;
 }
 
-.footer-box{
-  max-width:1000px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.footer-item{
-  background:#181818;
-  border-radius:15px;
-  padding:18px;
-  border:1px solid #333;
-}
-
-.footer-item strong{
-  color:#ffbf3c;
-}
-
+/* WHATSAPP */
 .whatsapp{
   position:fixed;
-  bottom:18px;
-  right:18px;
+  bottom:15px;
+  right:15px;
   background:#25d366;
+  padding:12px 16px;
+  border-radius:30px;
   color:white;
-  padding:13px 18px;
-  border-radius:40px;
   text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 0 15px rgba(0,0,0,.5);
+  animation:pulse 2s infinite;
 }
 
-@media(max-width:950px){
+/* ANIMATIONS */
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-30px)}
+  to{opacity:1}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1}
+}
+
+@keyframes logoPop{
+  from{opacity:0;transform:scale(.7)}
+  to{opacity:1;transform:scale(1)}
+}
+
+@keyframes slideIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1}
+}
+
+@keyframes cardShow{
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,.7)}
+  70%{box-shadow:0 0 0 15px rgba(37,211,102,0)}
+  100%{box-shadow:0 0 0 0}
+}
+
+/* MOBILE */
+@media(max-width:900px){
   .grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:600px){
-  .top-info{
-    flex-direction:column;
-    gap:8px;
-  }
-
-  h1{
-    font-size:25px;
-  }
-
-  .slogan{
-    font-size:17px;
-  }
-
-  .nav{
-    overflow-x:auto;
-    justify-content:flex-start;
-  }
-
-  .nav a{
-    white-space:nowrap;
-    font-size:13px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer-box{
-    grid-template-columns:1fr;
-  }
-
-  .logo{
-    width:180px;
-  }
+  .grid{grid-template-columns:1fr}
 }
 </style>
+
 </head>
 
 <body>
 
 <header class="hero">
   <div class="top-info">
-    <a href="tel:05313885306">📞 0531 388 53 06</a>
-    <a href="https://instagram.com/mersin_tantuni_altinsehir" target="_blank">📸 @mersin_tantuni_altinsehir</a>
+    <span>📞 0531 388 53 06</span>
+    <span>📸 @mersin_tantuni_altinsehir</span>
   </div>
 
-  <img src="logo.png" class="logo" alt="Altınşehir Mersin Tantuni Logo">
+  <img src="logo.png" class="logo">
 
   <h1>ALTINŞEHİR MERSİN TANTUNİ</h1>
   <p class="slogan">Tantunide Usta, Çiğköftede Efsane!</p>
 </header>
 
 <nav class="nav">
-  <a href="#et">Et Tantuni</a>
-  <a href="#tavuk">Tavuk Tantuni</a>
-  <a href="#cigkofte">Çiğköfte</a>
-  <a href="#icecek">İçecekler</a>
+  <a href="#et">Et</a>
+  <a href="#tavuk">Tavuk</a>
+  <a href="#cig">Çiğköfte</a>
+  <a href="#icecek">İçecek</a>
 </nav>
 
-<main class="container">
+<div class="container">
+<div class="grid">
 
-  <section class="grid">
+<div class="card" id="et">
+<h2>ET TANTUNİ</h2>
+<div class="item">Lavaş Et <span class="price">250 TL</span></div>
+<div class="item">Somun Et <span class="price">250 TL</span></div>
+<div class="item">Yoğurtlu Et <span class="price">280 TL</span></div>
+</div>
 
-    <div class="card et" id="et">
-      <h2>🥩 ET TANTUNİ</h2>
-      <div class="item"><span class="name">Lavaş Et Tantuni</span><span class="price">250 TL</span></div>
-      <div class="item"><span class="name">Somun Et Tantuni</span><span class="price">250 TL</span></div>
-      <div class="item"><span class="name">Yoğurtlu Et Tantuni</span><span class="price">280 TL</span></div>
-    </div>
+<div class="card" id="tavuk">
+<h2>TAVUK TANTUNİ</h2>
+<div class="item">Lavaş Tavuk <span class="price">140 TL</span></div>
+<div class="item">Somun Tavuk <span class="price">140 TL</span></div>
+<div class="item">Yoğurtlu Tavuk <span class="price">180 TL</span></div>
+</div>
 
-    <div class="card tavuk" id="tavuk">
-      <h2>🐔 TAVUK TANTUNİ</h2>
-      <div class="item"><span class="name">Lavaş Tavuk Tantuni</span><span class="price">140 TL</span></div>
-      <div class="item"><span class="name">Somun Tavuk Tantuni</span><span class="price">140 TL</span></div>
-      <div class="item"><span class="name">Yoğurtlu Tavuk Tantuni</span><span class="price">180 TL</span></div>
-    </div>
+<div class="card" id="cig">
+<h2>ÇİĞKÖFTE</h2>
+<div class="item">Dürüm <span class="price">60 TL</span></div>
+<div class="item">Porsiyon <span class="price">200 TL</span></div>
+<div class="item">Kilo <span class="price">450 TL</span></div>
+</div>
 
-    <div class="card cig" id="cigkofte">
-      <h2>🌯 ÇİĞKÖFTE</h2>
-      <div class="item"><span class="name">Dürüm Çiğköfte</span><span class="price">60 TL</span></div>
-      <div class="item"><span class="name">Porsiyon Çiğköfte</span><span class="price">200 TL</span></div>
-      <div class="item"><span class="name">Kilo Çiğköfte</span><span class="price">450 TL</span></div>
-    </div>
+<div class="card" id="icecek">
+<h2>İÇECEKLER</h2>
+<div class="item">Kutu Kola <span class="price">60 TL</span></div>
+<div class="item">Şişe Kola <span class="price">40 TL</span></div>
+<div class="item">Şalgam <span class="price">40 TL</span></div>
+<div class="item">Büyük Ayran <span class="price">30 TL</span></div>
+<div class="item">Küçük Ayran <span class="price">20 TL</span></div>
+<div class="item">Su <span class="price">15 TL</span></div>
+<div class="item">Soğuk Çay <span class="price">60 TL</span></div>
+<div class="item">Soda <span class="price">40 TL</span></div>
+</div>
 
-    <div class="card icecek" id="icecek">
-      <h2>🥤 İÇECEKLER</h2>
-      <div class="item"><span class="name">Kutu Kola</span><span class="price">60 TL</span></div>
-      <div class="item"><span class="name">Soğuk Çay</span><span class="price">60 TL</span></div>
-      <div class="item"><span class="name">Şişe Kola</span><span class="price">40 TL</span></div>
-      <div class="item"><span class="name">Şalgam</span><span class="price">40 TL</span></div>
-      <div class="item"><span class="name">Soda</span><span class="price">40 TL</span></div>
-      <div class="item"><span class="name">Büyük Ayran</span><span class="price">30 TL</span></div>
-      <div class="item"><span class="name">Küçük Ayran</span><span class="price">20 TL</span></div>
-      <div class="item"><span class="name">Su</span><span class="price">15 TL</span></div>
-    </div>
-
-  </section>
-
-</main>
+</div>
+</div>
 
 <footer class="footer">
-  <div class="footer-box">
-    <div class="footer-item">
-      <strong>📞 Sipariş</strong><br>
-      0531 388 53 06
-    </div>
-
-    <div class="footer-item">
-      <strong>📍 Adres</strong><br>
-      Altınşehir, 3035. Sk. no:10/1<br>
-      Adıyaman Merkez / Adıyaman
-    </div>
-
-    <div class="footer-item">
-      <strong>🍽️ Afiyet Olsun</strong><br>
-      Lezzetin Adresi
-    </div>
-  </div>
+📍 Altınşehir / Adıyaman  
 </footer>
 
-<a class="whatsapp" href="https://wa.me/905313885306" target="_blank">WhatsApp Sipariş</a>
+<a class="whatsapp" href="https://wa.me/905313885306">Sipariş</a>
 
 </body>
 </html>
