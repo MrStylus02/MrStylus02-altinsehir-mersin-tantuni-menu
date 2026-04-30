@@ -9,50 +9,21 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:Arial, sans-serif;
+  font-family:Arial;
   background:#090909;
   color:white;
 }
 
 /* HERO */
 .hero{
-  background:linear-gradient(rgba(60,0,0,.85),rgba(0,0,0,.9)),
-  url("https://images.unsplash.com/photo-1604908177522-040be54b0f5f?auto=format&fit=crop&w=1600&q=80");
-  background-size:cover;
-  background-position:center;
   text-align:center;
-  padding:25px 15px 35px;
-  border-bottom:4px solid #d89b1d;
-
-  animation:fadeDown 1s ease forwards;
-}
-
-.top-info{
-  display:flex;
-  justify-content:space-between;
-  max-width:1100px;
-  margin:auto;
-  font-weight:bold;
-  font-size:15px;
+  padding:25px;
+  background:#111;
 }
 
 .logo{
-  width:220px;
-  margin:20px auto;
-  display:block;
-  animation:logoPop 1.2s ease forwards;
-}
-
-h1{
-  color:#ffcc55;
-  font-size:32px;
-  animation:fadeUp 1s ease forwards;
-}
-
-.slogan{
-  font-size:20px;
-  margin-top:8px;
-  animation:fadeUp 1.2s ease forwards;
+  width:200px;
+  margin:15px auto;
 }
 
 /* NAV */
@@ -61,12 +32,10 @@ h1{
   justify-content:center;
   gap:10px;
   background:#151515;
-  padding:10px;
+  padding:12px;
   position:sticky;
   top:0;
   z-index:10;
-
-  animation:slideIn 1s ease forwards;
 }
 
 .nav a{
@@ -78,17 +47,17 @@ h1{
   transition:.3s;
 }
 
-.nav a:hover{
+.nav a.active{
   background:#d89b1d;
   color:black;
-  transform:translateY(-2px);
+  transform:scale(1.1);
 }
 
 /* MENU */
 .container{
   max-width:1100px;
   margin:auto;
-  padding:20px;
+  padding:30px 15px;
 }
 
 .grid{
@@ -101,89 +70,30 @@ h1{
   background:#111;
   border:1px solid #d89b1d;
   border-radius:15px;
-  padding:15px;
-
-  opacity:0;
-  transform:translateY(30px);
-  animation:cardShow .8s ease forwards;
+  padding:20px;
 }
 
-.card:nth-child(1){animation-delay:.2s}
-.card:nth-child(2){animation-delay:.4s}
-.card:nth-child(3){animation-delay:.6s}
-.card:nth-child(4){animation-delay:.8s}
+.card.active{
+  box-shadow:0 0 25px #d89b1d;
+  transform:scale(1.03);
+  transition:.3s;
+}
 
 .card h2{
   text-align:center;
+  margin-bottom:15px;
   color:#ffbf3c;
-  margin-bottom:10px;
 }
 
 .item{
   display:flex;
   justify-content:space-between;
-  border-bottom:1px dashed #444;
   padding:10px 0;
-  transition:.2s;
-}
-
-.item:hover{
-  transform:translateX(5px);
+  border-bottom:1px dashed #444;
 }
 
 .price{
   color:#ffbf3c;
-}
-
-/* FOOTER */
-.footer{
-  text-align:center;
-  padding:20px;
-  background:#111;
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:15px;
-  right:15px;
-  background:#25d366;
-  padding:12px 16px;
-  border-radius:30px;
-  color:white;
-  text-decoration:none;
-  animation:pulse 2s infinite;
-}
-
-/* ANIMATIONS */
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-30px)}
-  to{opacity:1}
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1}
-}
-
-@keyframes logoPop{
-  from{opacity:0;transform:scale(.7)}
-  to{opacity:1;transform:scale(1)}
-}
-
-@keyframes slideIn{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1}
-}
-
-@keyframes cardShow{
-  to{opacity:1;transform:translateY(0)}
-}
-
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(37,211,102,.7)}
-  70%{box-shadow:0 0 0 15px rgba(37,211,102,0)}
-  100%{box-shadow:0 0 0 0}
 }
 
 /* MOBILE */
@@ -195,21 +105,13 @@ h1{
   .grid{grid-template-columns:1fr}
 }
 </style>
-
 </head>
 
 <body>
 
 <header class="hero">
-  <div class="top-info">
-    <span>📞 0531 388 53 06</span>
-    <span>📸 @mersin_tantuni_altinsehir</span>
-  </div>
-
   <img src="logo.png" class="logo">
-
-  <h1>ALTINŞEHİR MERSİN TANTUNİ</h1>
-  <p class="slogan">Tantunide Usta, Çiğköftede Efsane!</p>
+  <h2>ALTINŞEHİR MERSİN TANTUNİ</h2>
 </header>
 
 <nav class="nav">
@@ -248,21 +150,49 @@ h1{
 <div class="item">Kutu Kola <span class="price">60 TL</span></div>
 <div class="item">Şişe Kola <span class="price">40 TL</span></div>
 <div class="item">Şalgam <span class="price">40 TL</span></div>
-<div class="item">Büyük Ayran <span class="price">30 TL</span></div>
-<div class="item">Küçük Ayran <span class="price">20 TL</span></div>
-<div class="item">Su <span class="price">15 TL</span></div>
-<div class="item">Soğuk Çay <span class="price">60 TL</span></div>
-<div class="item">Soda <span class="price">40 TL</span></div>
 </div>
 
 </div>
 </div>
 
-<footer class="footer">
-📍 Altınşehir / Adıyaman  
-</footer>
+<script>
+// BUTONA BASINCA ORTALA
+document.querySelectorAll('.nav a').forEach(link => {
+  link.addEventListener('click', function(e){
+    e.preventDefault()
 
-<a class="whatsapp" href="https://wa.me/905313885306">Sipariş</a>
+    const target = document.querySelector(this.getAttribute('href'))
+
+    target.scrollIntoView({
+      behavior:'smooth',
+      block:'center'
+    })
+  })
+})
+
+// AKTİF BÖLÜM TAKİBİ
+const sections = document.querySelectorAll('.card')
+const navLinks = document.querySelectorAll('.nav a')
+
+window.addEventListener('scroll', () => {
+  let current = ''
+
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect()
+    if(rect.top < window.innerHeight/2 && rect.bottom > window.innerHeight/2){
+      current = section.id
+    }
+  })
+
+  sections.forEach(s => s.classList.remove('active'))
+  navLinks.forEach(l => l.classList.remove('active'))
+
+  if(current){
+    document.getElementById(current).classList.add('active')
+    document.querySelector(`.nav a[href="#${current}"]`).classList.add('active')
+  }
+})
+</script>
 
 </body>
 </html>
