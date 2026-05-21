@@ -1,212 +1,343 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Altınşehir Mersin Tantuni | QR Menü</title>
+<meta name="description" content="Altınşehir Mersin Tantuni dijital QR menüsü. Tantuni, çiğköfte ve içecek çeşitleri." />
+<meta name="theme-color" content="#120000" />
 
 <style>
+:root{
+  --bg:#080808;
+  --panel:#141414;
+  --panel-2:#1d1d1d;
+  --gold:#ffbf3c;
+  --gold-2:#d89b1d;
+  --red:#c1121f;
+  --green:#25d366;
+  --text:#ffffff;
+  --muted:#c9c9c9;
+  --border:rgba(255,191,60,.35);
+  --shadow:0 18px 45px rgba(0,0,0,.45);
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
-  font-family:Arial, sans-serif;
-  background:#080808;
-  color:white;
+  font-family:Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top,#4b0505 0%,#120000 34%,#080808 100%);
+  color:var(--text);
+  min-height:100vh;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+}
+
+.skip-link{
+  position:absolute;
+  top:-50px;
+  left:12px;
+  background:var(--gold);
+  color:#111;
+  padding:10px 14px;
+  border-radius:10px;
+  z-index:9999;
+  font-weight:bold;
+}
+
+.skip-link:focus{
+  top:12px;
 }
 
 .hero{
-  background:
-    radial-gradient(circle at top,#5c0808 0%,#160000 35%,#080808 100%);
   text-align:center;
-  padding:22px 15px 36px;
-  border-bottom:4px solid #d89b1d;
-  animation:fadeDown 1s ease;
+  padding:22px 15px 28px;
+  border-bottom:4px solid var(--gold-2);
 }
 
-.top-buttons{
-  max-width:1100px;
+.top-actions{
+  max-width:1120px;
   margin:0 auto 18px;
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
 }
 
-.top-buttons a{
-  min-width:170px;
-  color:white;
+.action-btn{
+  border:0;
   text-decoration:none;
-  padding:12px 18px;
+  min-height:48px;
   border-radius:999px;
-  font-weight:bold;
+  font-weight:800;
   display:flex;
   align-items:center;
   justify-content:center;
   gap:8px;
-  border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 8px 22px rgba(0,0,0,.35);
-  transition:.3s;
+  box-shadow:var(--shadow);
+  transition:.2s ease;
 }
 
-.top-buttons a:hover{
-  transform:translateY(-3px) scale(1.04);
+.action-btn:hover,
+.action-btn:focus-visible{
+  transform:translateY(-2px);
+  outline:2px solid var(--gold);
+  outline-offset:3px;
 }
 
 .call-btn{
-  background:linear-gradient(135deg,#0f9b4a,#25d366);
+  background:linear-gradient(135deg,#0f9b4a,var(--green));
 }
 
 .insta-btn{
   background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4);
 }
 
+.cart-top-btn{
+  background:linear-gradient(135deg,#2b2b2b,#111);
+  border:1px solid var(--border);
+  color:white;
+}
+
 .logo{
-  width:230px;
-  max-width:80%;
-  margin:18px auto 12px;
+  width:220px;
+  max-width:78%;
+  height:auto;
+  margin:12px auto;
   display:block;
-  animation:logoPop 1.2s ease;
-  filter:drop-shadow(0 0 22px rgba(0,0,0,.75));
+  filter:drop-shadow(0 0 20px rgba(0,0,0,.75));
 }
 
 h1{
   color:#ffcc55;
-  font-size:33px;
+  font-size:clamp(24px,5vw,38px);
   letter-spacing:.5px;
 }
 
 .slogan{
-  font-size:20px;
+  font-size:clamp(15px,3vw,20px);
   margin-top:8px;
   font-weight:bold;
 }
 
-.nav{
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:15px;
+  padding:9px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  color:#f4f4f4;
+  font-weight:bold;
+}
+
+.status-dot{
+  width:10px;
+  height:10px;
+  background:var(--green);
+  border-radius:50%;
+  box-shadow:0 0 15px var(--green);
+}
+
+.sticky-tools{
   position:sticky;
   top:0;
-  z-index:99;
-  background:rgba(15,15,15,.95);
-  backdrop-filter:blur(10px);
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  padding:13px;
-  border-bottom:1px solid #333;
-  overflow-x:auto;
+  z-index:100;
+  background:rgba(8,8,8,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.1);
 }
 
-.nav a{
+.tools-inner{
+  max-width:1120px;
+  margin:auto;
+  padding:12px 15px;
+}
+
+.search-wrap{
+  position:relative;
+  margin-bottom:12px;
+}
+
+.search-input{
+  width:100%;
+  min-height:48px;
+  border:1px solid var(--border);
+  background:#111;
   color:white;
-  text-decoration:none;
-  border:1px solid #d89b1d;
-  padding:10px 18px;
-  border-radius:30px;
-  font-weight:bold;
-  white-space:nowrap;
-  transition:.3s;
+  border-radius:16px;
+  padding:0 44px 0 16px;
+  outline:none;
 }
 
-.nav a.active,
-.nav a:hover{
-  background:#d89b1d;
+.search-input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(255,191,60,.18);
+}
+
+.search-icon{
+  position:absolute;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--gold);
+}
+
+.category-tabs{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:4px;
+  scrollbar-width:thin;
+}
+
+.category-tab{
+  border:1px solid var(--border);
+  background:#141414;
+  color:white;
+  border-radius:999px;
+  padding:11px 16px;
+  font-weight:800;
+  white-space:nowrap;
+  transition:.2s ease;
+}
+
+.category-tab:hover,
+.category-tab:focus-visible,
+.category-tab.active{
+  background:var(--gold);
   color:#111;
-  transform:scale(1.08);
-  box-shadow:0 0 18px rgba(216,155,29,.7);
+  box-shadow:0 0 18px rgba(216,155,29,.45);
 }
 
 .container{
-  max-width:1150px;
+  max-width:1120px;
   margin:auto;
-  padding:28px 15px;
+  padding:26px 15px 120px;
 }
 
-.grid{
+.category-title{
+  margin:14px 0 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.category-title h2{
+  color:var(--gold);
+  font-size:24px;
+}
+
+.result-count{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.products-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
 }
 
-.card{
-  background:linear-gradient(180deg,#181818,#0b0b0b);
-  border:1px solid #8d6218;
-  border-radius:20px;
-  padding:20px;
-  min-height:310px;
-  opacity:0;
-  transform:translateY(35px);
-  animation:cardShow .8s ease forwards;
-  transition:.3s;
+.product-card{
+  background:linear-gradient(180deg,var(--panel-2),#0b0b0b);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 10px 28px rgba(0,0,0,.25);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-height:220px;
+  content-visibility:auto;
+  contain-intrinsic-size:220px;
 }
 
-.card:nth-child(1){animation-delay:.15s}
-.card:nth-child(2){animation-delay:.3s}
-.card:nth-child(3){animation-delay:.45s}
-.card:nth-child(4){animation-delay:.6s}
-
-.card.active{
-  border-color:#ffcc55;
-  box-shadow:0 0 28px rgba(216,155,29,.85);
-  transform:scale(1.04);
-}
-
-.card h2{
-  text-align:center;
-  color:#ffbf3c;
-  margin-bottom:18px;
-  font-size:22px;
-}
-
-.item{
+.product-head{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   gap:12px;
-  border-bottom:1px dashed #444;
-  padding:13px 0;
-  transition:.25s;
 }
 
-.item:hover{
-  transform:translateX(6px);
-  background:rgba(255,191,60,.07);
-  border-radius:10px;
-  padding-left:8px;
+.product-name{
+  font-size:18px;
+  font-weight:900;
+  line-height:1.3;
 }
 
-.name{
-  font-weight:bold;
-  font-size:16px;
-}
-
-.desc{
-  font-size:13px;
-  color:#bbb;
-  margin-top:4px;
-  line-height:1.4;
-}
-
-.price{
-  color:#ffbf3c;
-  border:1px solid #b87915;
-  padding:5px 9px;
-  border-radius:8px;
-  font-weight:bold;
-  white-space:nowrap;
+.product-desc{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.45;
 }
 
 .badge{
-  display:inline-block;
-  background:#c1121f;
+  display:inline-flex;
+  width:max-content;
+  background:var(--red);
   color:white;
-  font-size:11px;
-  padding:3px 7px;
+  font-size:12px;
+  padding:5px 9px;
+  border-radius:999px;
+  font-weight:800;
+}
+
+.price{
+  color:var(--gold);
+  border:1px solid #b87915;
+  padding:7px 10px;
+  border-radius:10px;
+  font-weight:900;
+  white-space:nowrap;
+  height:max-content;
+}
+
+.add-btn{
+  margin-top:auto;
+  border:0;
+  min-height:45px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--gold),#ffdb79);
+  color:#111;
+  font-weight:900;
+  transition:.2s ease;
+}
+
+.add-btn:hover,
+.add-btn:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:0 0 20px rgba(255,191,60,.3);
+}
+
+.empty-state{
+  background:#111;
+  border:1px dashed var(--border);
   border-radius:20px;
-  margin-top:5px;
+  padding:25px;
+  text-align:center;
+  color:var(--muted);
 }
 
 .footer{
-  background:#111;
+  background:#101010;
   border-top:1px solid #333;
   padding:25px 15px;
   text-align:center;
@@ -225,10 +356,11 @@ h1{
   border:1px solid #333;
   border-radius:16px;
   padding:18px;
+  line-height:1.5;
 }
 
 .footer-item strong{
-  color:#ffbf3c;
+  color:var(--gold);
 }
 
 .float-buttons{
@@ -241,286 +373,875 @@ h1{
   z-index:200;
 }
 
-.float-buttons a{
+.float-buttons a,
+.float-buttons button{
   color:white;
   text-decoration:none;
-  padding:12px 16px;
-  border-radius:30px;
+  border:0;
+  padding:13px 16px;
+  border-radius:999px;
+  font-weight:900;
+  box-shadow:0 0 16px rgba(0,0,0,.55);
+}
+
+.whatsapp{background:var(--green)}
+.map{background:var(--red)}
+.cart-float{background:#222;border:1px solid var(--border)!important}
+
+.cart-count{
+  display:inline-flex;
+  min-width:22px;
+  height:22px;
+  align-items:center;
+  justify-content:center;
+  background:var(--gold);
+  color:#111;
+  border-radius:999px;
+  font-size:12px;
+  margin-left:6px;
+}
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:500;
+  opacity:0;
+  pointer-events:none;
+  transition:.2s ease;
+}
+
+.cart-overlay.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.cart-drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  width:min(430px,100%);
+  height:100vh;
+  background:#101010;
+  z-index:600;
+  transform:translateX(100%);
+  transition:.25s ease;
+  display:flex;
+  flex-direction:column;
+  border-left:1px solid var(--border);
+}
+
+.cart-drawer.show{
+  transform:translateX(0);
+}
+
+.cart-header{
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cart-header h2{
+  color:var(--gold);
+  font-size:22px;
+}
+
+.close-cart{
+  background:#222;
+  color:white;
+  border:1px solid #444;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  font-size:22px;
+}
+
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:16px;
+}
+
+.cart-item{
+  background:#181818;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;
+  padding:13px;
+  margin-bottom:12px;
+}
+
+.cart-item-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.cart-item-name{
+  font-weight:900;
+}
+
+.cart-item-price{
+  color:var(--gold);
+  font-weight:900;
+}
+
+.qty-controls{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.qty-group{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.qty-btn{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#111;
+  color:white;
+  font-weight:900;
+}
+
+.remove-btn{
+  border:0;
+  background:transparent;
+  color:#ff7777;
   font-weight:bold;
-  box-shadow:0 0 15px rgba(0,0,0,.6);
 }
 
-.whatsapp{background:#25d366;animation:pulse 2s infinite}
-.map{background:#c1121f}
-
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-35px)}
-  to{opacity:1;transform:translateY(0)}
+.cart-footer{
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:16px;
+  background:#0b0b0b;
 }
 
-@keyframes logoPop{
-  from{opacity:0;transform:scale(.75)}
-  to{opacity:1;transform:scale(1)}
+.total-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+  font-size:20px;
+  font-weight:900;
 }
 
-@keyframes cardShow{
-  to{opacity:1;transform:translateY(0)}
+.customer-note{
+  width:100%;
+  min-height:46px;
+  border-radius:14px;
+  border:1px solid #333;
+  background:#151515;
+  color:white;
+  padding:12px;
+  margin-bottom:10px;
+  outline:none;
 }
 
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(37,211,102,.7)}
-  70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
-  100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+.order-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  width:100%;
+  min-height:50px;
+  border-radius:15px;
+  background:var(--green);
+  color:white;
+  font-weight:900;
+  margin-bottom:10px;
 }
 
-@media(max-width:950px){
-  .grid{grid-template-columns:repeat(2,1fr)}
+.clear-btn{
+  width:100%;
+  min-height:44px;
+  border-radius:14px;
+  border:1px solid #444;
+  background:#181818;
+  color:white;
+  font-weight:800;
 }
 
-@media(max-width:600px){
-  .top-buttons{
-    justify-content:center;
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%) translateY(20px);
+  background:#111;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:12px 18px;
+  z-index:900;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+  box-shadow:var(--shadow);
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:900px){
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .top-actions{grid-template-columns:1fr}
+}
+
+@media(max-width:620px){
+  .products-grid{grid-template-columns:1fr}
+  .footer-box{grid-template-columns:1fr}
+  .logo{width:185px}
+  .float-buttons{
+    left:12px;
+    right:12px;
+    bottom:10px;
+    flex-direction:row;
   }
-
-  .top-buttons a{
-    width:100%;
-    min-width:auto;
+  .float-buttons a,
+  .float-buttons button{
+    flex:1;
+    padding:12px 10px;
+    font-size:14px;
   }
+}
 
-  h1{font-size:24px}
-  .slogan{font-size:16px}
-
-  .nav{
-    justify-content:flex-start;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer-box{
-    grid-template-columns:1fr;
-  }
-
-  .logo{
-    width:190px;
+@media(prefers-reduced-motion:reduce){
+  *{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
   }
 }
 </style>
 </head>
 
 <body>
+<a href="#menu" class="skip-link">Menüye geç</a>
 
 <header class="hero">
-  <div class="top-buttons">
-    <a href="tel:05313885306" class="call-btn">📞 Hemen Ara</a>
-    <a href="https://instagram.com/mersin_tantuni_altinsehir" target="_blank" class="insta-btn">📸 Instagram</a>
+  <div class="top-actions" aria-label="Hızlı işlemler">
+    <a href="tel:05313885306" class="action-btn call-btn" aria-label="Restoranı ara">📞 Hemen Ara</a>
+    <a href="https://instagram.com/mersin_tantuni_altinsehir" target="_blank" rel="noopener" class="action-btn insta-btn" aria-label="Instagram sayfasını aç">📸 Instagram</a>
+    <button class="action-btn cart-top-btn" type="button" id="openCartTop" aria-label="Sepeti aç">
+      🛒 Sepetim <span class="cart-count" id="cartCountTop">0</span>
+    </button>
   </div>
 
-  <img src="logo.png" class="logo" alt="Altınşehir Mersin Tantuni Logo">
+  <img src="logo.png" class="logo" alt="Altınşehir Mersin Tantuni logosu" width="220" height="220" loading="eager" />
 
   <h1>ALTINŞEHİR MERSİN TANTUNİ</h1>
   <p class="slogan">Tantunide Usta, Çiğköftede Efsane!</p>
+
+  <div class="status" aria-label="Restoran durumu">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span id="openStatus">Siparişe hazırız</span>
+  </div>
 </header>
 
-<nav class="nav">
-  <a href="#et">🥩 Et Tantuni</a>
-  <a href="#tavuk">🐔 Tavuk Tantuni</a>
-  <a href="#cig">🌯 Çiğköfte</a>
-  <a href="#icecek">🥤 İçecekler</a>
-</nav>
-
-<main class="container">
-<section class="grid">
-
-  <div class="card" id="et">
-    <h2>🥩 ET TANTUNİ</h2>
-
-    <div class="item">
-      <div>
-        <span class="name">Lavaş Et Tantuni</span>
-        <div class="desc">Soğan, maydanoz ve domates</div>
-        <span class="badge">🔥 En Çok Satan</span>
-      </div>
-      <span class="price">250 TL</span>
+<section class="sticky-tools" aria-label="Menü araçları">
+  <div class="tools-inner">
+    <div class="search-wrap">
+      <label for="searchInput" class="visually-hidden"></label>
+      <input
+        id="searchInput"
+        class="search-input"
+        type="search"
+        placeholder="Menüde ara: tavuk, ayran, yoğurtlu..."
+        aria-label="Menüde ürün ara"
+        autocomplete="off"
+      />
+      <span class="search-icon" aria-hidden="true">🔎</span>
     </div>
 
-    <div class="item">
-      <div>
-        <span class="name">Somun Et Tantuni</span>
-        <div class="desc">Soğan, maydanoz ve domates</div>
-      </div>
-      <span class="price">250 TL</span>
-    </div>
-
-  <div class="item">
-      <div>
-        <span class="name">Dilimlenmiş Et Tantuni</span>
-        <div class="desc">Soğan, maydanoz ve domates</div>
-      </div>
-      <span class="price">260 TL</span>
-    </div>
-    
-    <div class="item">
-      <div>
-        <span class="name">Yoğurtlu Et Tantuni</span>
-        <div class="desc">Soğan, maydanoz, domates, yoğurt ve sos</div>
-      </div>
-      <span class="price">280 TL</span>
-    </div>
-
-  
+    <nav class="category-tabs" id="categoryTabs" aria-label="Menü kategorileri"></nav>
   </div>
-
-  <div class="card" id="tavuk">
-    <h2>🐔 TAVUK TANTUNİ</h2>
-
-    <div class="item">
-      <div>
-        <span class="name">Lavaş Tavuk Tantuni</span>
-        <div class="desc">Soğan, maydanoz ve domates</div>
-        <span class="badge">⭐ Favori</span>
-      </div>
-      <span class="price">100 TL</span>
-    </div>
-
-    <div class="item">
-      <div>
-        <span class="name">Somun Tavuk Tantuni</span>
-        <div class="desc">Soğan, maydanoz ve domates</div>
-      </div>
-      <span class="price">100 TL</span>
-    </div>
-
-    <div class="item">
-      <div>
-        <span class="name">Dilimlenmiş Tavuk Tantuni</span>
-        <div class="desc">Soğan, maydanoz ve domates</div>
-      </div>
-      <span class="price">120 TL</span>
-    </div>
-
-    <div class="item">
-      <div>
-        <span class="name">Yoğurtlu Tavuk Tantuni</span>
-        <div class="desc">Soğan, maydanoz, domates, yoğurt ve sos</div>
-      </div>
-      <span class="price">150 TL</span>
-    </div>
-
-  </div>
-
-  <div class="card" id="cig">
-    <h2>🌯 ÇİĞKÖFTE</h2>
-
-    <div class="item">
-      <div>
-        <span class="name">Dürüm Çiğköfte</span>
-        <div class="desc">Nar ekşisi ve yeşillik</div>
-      </div>
-      <span class="price">50 TL</span>
-    </div>
-
-    <div class="item">
-      <div>
-        <span class="name">Porsiyon Çiğköfte</span>
-        <div class="desc">Nar ekşisi ve yeşillik</div>
-      </div>
-      <span class="price">150 TL</span>
-    </div>
-  </div>
-
-  <div class="card" id="icecek">
-    <h2>🥤 İÇECEKLER</h2>
-
-    <div class="item"><span class="name">Kutu Kola</span><span class="price">60 TL</span></div>
-    <div class="item"><span class="name">Soğuk Çay</span><span class="price">60 TL</span></div>
-    <div class="item"><span class="name">Şişe Kola</span><span class="price">40 TL</span></div>
-    <div class="item"><span class="name">Şalgam</span><span class="price">40 TL</span></div>
-    <div class="item"><span class="name">Soda</span><span class="price">40 TL</span></div>
-    <div class="item"><span class="name">Büyük Ayran</span><span class="price">30 TL</span></div>
-    <div class="item"><span class="name">Açık Ayran</span><span class="price">30 TL</span></div>
-    <div class="item"><span class="name">Küçük Ayran</span><span class="price">20 TL</span></div>
-    <div class="item"><span class="name">Su</span><span class="price">15 TL</span></div>
-    <div class="item"><span class="name">Çay</span><span class="price">15 TL</span></div>
-  </div>
-
 </section>
+
+<main class="container" id="menu">
+  <div class="category-title">
+    <h2 id="activeCategoryTitle">Tüm Ürünler</h2>
+    <span class="result-count" id="resultCount">0 ürün</span>
+  </div>
+
+  <section class="products-grid" id="productsGrid" aria-live="polite"></section>
 </main>
 
 <footer class="footer">
   <div class="footer-box">
     <div class="footer-item">
-      <strong>📞 Sipariş</strong><br>
-      0531 388 53 06
+      <strong>📞 Sipariş</strong><br />
+      <a href="tel:05313885306">0531 388 53 06</a>
     </div>
 
     <div class="footer-item">
-      <strong>📍 Adres</strong><br>
-      Altınşehir, 3035. Sk. no:10/1<br>
+      <strong>📍 Adres</strong><br />
+      Altınşehir, 3035. Sk. no:10/1<br />
       Adıyaman Merkez / Adıyaman
     </div>
 
     <div class="footer-item">
-      <strong>🍽️ Afiyet Olsun</strong><br>
+      <strong>🍽️ Afiyet Olsun</strong><br />
       Lezzetin Adresi
     </div>
   </div>
 </footer>
 
-<div class="float-buttons">
-  <a class="whatsapp" href="https://wa.me/905313885306?text=Merhaba, menüden sipariş vermek istiyorum." target="_blank">WhatsApp</a>
-  <a class="map" href="https://www.google.com/maps/search/?api=1&query=Altınşehir,3035.Sk.no:10/1,02040,Adıyaman" target="_blank">Konum</a>
+<div class="float-buttons" aria-label="Sabit hızlı işlemler">
+  <a class="whatsapp" href="https://wa.me/905313885306?text=Merhaba, menüden sipariş vermek istiyorum." target="_blank" rel="noopener">WhatsApp</a>
+  <a class="map" href="https://www.google.com/maps/search/?api=1&query=Altınşehir,3035.Sk.no:10/1,02040,Adıyaman" target="_blank" rel="noopener">Konum</a>
+  <button class="cart-float" id="openCartFloat" type="button">
+    Sepet <span class="cart-count" id="cartCountFloat">0</span>
+  </button>
 </div>
 
+<div class="cart-overlay" id="cartOverlay" hidden></div>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Sepet" aria-hidden="true">
+  <div class="cart-header">
+    <h2>🛒 Sepetim</h2>
+    <button class="close-cart" id="closeCart" type="button" aria-label="Sepeti kapat">×</button>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+
+  <div class="cart-footer">
+    <div class="total-row">
+      <span>Toplam</span>
+      <span id="cartTotal">0 TL</span>
+    </div>
+
+    <input
+      class="customer-note"
+      id="customerNote"
+      type="text"
+      placeholder="Not ekle: acısız olsun, soğansız olsun..."
+      aria-label="Sipariş notu"
+    />
+
+    <a class="order-btn" id="whatsappOrder" href="#" target="_blank" rel="noopener">
+      WhatsApp ile Sipariş Ver
+    </a>
+
+    <button class="clear-btn" id="clearCart" type="button">Sepeti Temizle</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script>
-const navLinks = document.querySelectorAll('.nav a');
-const cards = document.querySelectorAll('.card');
+const RESTAURANT = {
+  name: "Altınşehir Mersin Tantuni",
+  phone: "905313885306",
+  address: "Altınşehir, 3035. Sk. no:10/1, Adıyaman Merkez / Adıyaman"
+};
 
-navLinks.forEach(link => {
-  link.addEventListener('click', function(e){
-    e.preventDefault();
+/*
+  FİYAT GÜNCELLEME ALANI
+  Sadece aşağıdaki price değerlerini değiştirmen yeterli.
+*/
+const categories = [
+  { id: "all", name: "Tüm Ürünler", icon: "🍽️" },
+  { id: "et", name: "Et Tantuni", icon: "🥩" },
+  { id: "tavuk", name: "Tavuk Tantuni", icon: "🐔" },
+  { id: "cig", name: "Çiğköfte", icon: "🌯" },
+  { id: "icecek", name: "İçecekler", icon: "🥤" }
+];
 
-    const target = document.querySelector(this.getAttribute('href'));
+const products = [
+  {
+    id: "et-lavas",
+    category: "et",
+    name: "Lavaş Et Tantuni",
+    desc: "Soğan, maydanoz ve domates",
+    price: 250,
+    badge: "🔥 En Çok Satan"
+  },
+  {
+    id: "et-somun",
+    category: "et",
+    name: "Somun Et Tantuni",
+    desc: "Soğan, maydanoz ve domates",
+    price: 250
+  },
+  {
+    id: "et-dilim",
+    category: "et",
+    name: "Dilimlenmiş Et Tantuni",
+    desc: "Soğan, maydanoz ve domates",
+    price: 260
+  },
+  {
+    id: "et-yogurtlu",
+    category: "et",
+    name: "Yoğurtlu Et Tantuni",
+    desc: "Soğan, maydanoz, domates, yoğurt ve sos",
+    price: 280
+  },
+  {
+    id: "tavuk-lavas",
+    category: "tavuk",
+    name: "Lavaş Tavuk Tantuni",
+    desc: "Soğan, maydanoz ve domates",
+    price: 100,
+    badge: "⭐ Favori"
+  },
+  {
+    id: "tavuk-somun",
+    category: "tavuk",
+    name: "Somun Tavuk Tantuni",
+    desc: "Soğan, maydanoz ve domates",
+    price: 100
+  },
+  {
+    id: "tavuk-dilim",
+    category: "tavuk",
+    name: "Dilimlenmiş Tavuk Tantuni",
+    desc: "Soğan, maydanoz ve domates",
+    price: 120
+  },
+  {
+    id: "tavuk-yogurtlu",
+    category: "tavuk",
+    name: "Yoğurtlu Tavuk Tantuni",
+    desc: "Soğan, maydanoz, domates, yoğurt ve sos",
+    price: 150
+  },
+  {
+    id: "cig-durum",
+    category: "cig",
+    name: "Dürüm Çiğköfte",
+    desc: "Nar ekşisi ve yeşillik",
+    price: 50
+  },
+  {
+    id: "cig-porsiyon",
+    category: "cig",
+    name: "Porsiyon Çiğköfte",
+    desc: "Nar ekşisi ve yeşillik",
+    price: 150
+  },
+  {
+    id: "icecek-kutu-kola",
+    category: "icecek",
+    name: "Kutu Kola",
+    desc: "Soğuk içecek",
+    price: 60
+  },
+  {
+    id: "icecek-soguk-cay",
+    category: "icecek",
+    name: "Soğuk Çay",
+    desc: "Soğuk içecek",
+    price: 60
+  },
+  {
+    id: "icecek-sise-kola",
+    category: "icecek",
+    name: "Şişe Kola",
+    desc: "Soğuk içecek",
+    price: 40
+  },
+  {
+    id: "icecek-salgam",
+    category: "icecek",
+    name: "Şalgam",
+    desc: "Soğuk içecek",
+    price: 40
+  },
+  {
+    id: "icecek-soda",
+    category: "icecek",
+    name: "Soda",
+    desc: "Soğuk içecek",
+    price: 40
+  },
+  {
+    id: "icecek-buyuk-ayran",
+    category: "icecek",
+    name: "Büyük Ayran",
+    desc: "Soğuk içecek",
+    price: 30
+  },
+  {
+    id: "icecek-acik-ayran",
+    category: "icecek",
+    name: "Açık Ayran",
+    desc: "Soğuk içecek",
+    price: 30
+  },
+  {
+    id: "icecek-kucuk-ayran",
+    category: "icecek",
+    name: "Küçük Ayran",
+    desc: "Soğuk içecek",
+    price: 20
+  },
+  {
+    id: "icecek-su",
+    category: "icecek",
+    name: "Su",
+    desc: "Soğuk içecek",
+    price: 15
+  },
+  {
+    id: "icecek-cay",
+    category: "icecek",
+    name: "Çay",
+    desc: "Sıcak içecek",
+    price: 15
+  }
+];
 
-    target.scrollIntoView({
-      behavior:'smooth',
-      block:'center'
-    });
+const state = {
+  activeCategory: "all",
+  search: "",
+  cart: loadCart()
+};
 
-    setActive(target.id);
-  });
+const categoryTabs = document.getElementById("categoryTabs");
+const productsGrid = document.getElementById("productsGrid");
+const activeCategoryTitle = document.getElementById("activeCategoryTitle");
+const resultCount = document.getElementById("resultCount");
+const searchInput = document.getElementById("searchInput");
+
+const cartDrawer = document.getElementById("cartDrawer");
+const cartOverlay = document.getElementById("cartOverlay");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const whatsappOrder = document.getElementById("whatsappOrder");
+const customerNote = document.getElementById("customerNote");
+
+const cartCountTop = document.getElementById("cartCountTop");
+const cartCountFloat = document.getElementById("cartCountFloat");
+const toast = document.getElementById("toast");
+
+document.getElementById("openCartTop").addEventListener("click", openCart);
+document.getElementById("openCartFloat").addEventListener("click", openCart);
+document.getElementById("closeCart").addEventListener("click", closeCart);
+document.getElementById("cartOverlay").addEventListener("click", closeCart);
+document.getElementById("clearCart").addEventListener("click", clearCart);
+
+customerNote.addEventListener("input", updateWhatsappLink);
+
+searchInput.addEventListener("input", function(){
+  state.search = this.value.trim().toLocaleLowerCase("tr-TR");
+  renderProducts();
 });
 
-function setActive(id){
-  cards.forEach(card => card.classList.remove('active'));
-  navLinks.forEach(link => link.classList.remove('active'));
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape") closeCart();
+});
 
-  const activeCard = document.getElementById(id);
-  const activeLink = document.querySelector(`.nav a[href="#${id}"]`);
-
-  if(activeCard) activeCard.classList.add('active');
-  if(activeLink) activeLink.classList.add('active');
+function formatPrice(value){
+  return new Intl.NumberFormat("tr-TR").format(value) + " TL";
 }
 
-window.addEventListener('scroll', () => {
-  let current = '';
+function renderCategories(){
+  categoryTabs.innerHTML = categories.map(category => `
+    <button
+      type="button"
+      class="category-tab ${state.activeCategory === category.id ? "active" : ""}"
+      data-category="${category.id}"
+      aria-pressed="${state.activeCategory === category.id}"
+    >
+      ${category.icon} ${category.name}
+    </button>
+  `).join("");
 
-  cards.forEach(card => {
-    const rect = card.getBoundingClientRect();
+  categoryTabs.querySelectorAll(".category-tab").forEach(button => {
+    button.addEventListener("click", function(){
+      state.activeCategory = this.dataset.category;
+      renderCategories();
+      renderProducts();
+      document.getElementById("menu").scrollIntoView({ behavior:"smooth", block:"start" });
+    });
+  });
+}
 
-    if(rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2){
-      current = card.id;
-    }
+function getFilteredProducts(){
+  return products.filter(product => {
+    const categoryMatch = state.activeCategory === "all" || product.category === state.activeCategory;
+    const searchText = `${product.name} ${product.desc}`.toLocaleLowerCase("tr-TR");
+    const searchMatch = !state.search || searchText.includes(state.search);
+    return categoryMatch && searchMatch;
+  });
+}
+
+function renderProducts(){
+  const filtered = getFilteredProducts();
+  const category = categories.find(item => item.id === state.activeCategory);
+
+  activeCategoryTitle.textContent = state.search
+    ? `"${state.search}" arama sonucu`
+    : category.name;
+
+  resultCount.textContent = `${filtered.length} ürün`;
+
+  if(filtered.length === 0){
+    productsGrid.innerHTML = `
+      <div class="empty-state">
+        Aradığın ürün bulunamadı. Farklı bir kelime deneyebilirsin.
+      </div>
+    `;
+    return;
+  }
+
+  productsGrid.innerHTML = filtered.map(product => `
+    <article class="product-card">
+      <div class="product-head">
+        <div>
+          <h3 class="product-name">${product.name}</h3>
+          <p class="product-desc">${product.desc}</p>
+        </div>
+        <span class="price">${formatPrice(product.price)}</span>
+      </div>
+
+      ${product.badge ? `<span class="badge">${product.badge}</span>` : ""}
+
+      <button
+        type="button"
+        class="add-btn"
+        data-id="${product.id}"
+        aria-label="${product.name} sepete ekle"
+      >
+        Sepete Ekle
+      </button>
+    </article>
+  `).join("");
+
+  productsGrid.querySelectorAll(".add-btn").forEach(button => {
+    button.addEventListener("click", function(){
+      addToCart(this.dataset.id);
+    });
+  });
+}
+
+function addToCart(productId){
+  const existing = state.cart.find(item => item.id === productId);
+
+  if(existing){
+    existing.qty += 1;
+  }else{
+    state.cart.push({ id: productId, qty: 1 });
+  }
+
+  saveCart();
+  renderCart();
+  showToast("Ürün sepete eklendi");
+}
+
+function decreaseQty(productId){
+  const existing = state.cart.find(item => item.id === productId);
+  if(!existing) return;
+
+  existing.qty -= 1;
+
+  if(existing.qty <= 0){
+    state.cart = state.cart.filter(item => item.id !== productId);
+  }
+
+  saveCart();
+  renderCart();
+}
+
+function increaseQty(productId){
+  const existing = state.cart.find(item => item.id === productId);
+  if(!existing) return;
+
+  existing.qty += 1;
+  saveCart();
+  renderCart();
+}
+
+function removeFromCart(productId){
+  state.cart = state.cart.filter(item => item.id !== productId);
+  saveCart();
+  renderCart();
+}
+
+function clearCart(){
+  state.cart = [];
+  saveCart();
+  renderCart();
+  showToast("Sepet temizlendi");
+}
+
+function getCartDetails(){
+  return state.cart
+    .map(cartItem => {
+      const product = products.find(item => item.id === cartItem.id);
+      if(!product) return null;
+
+      return {
+        ...product,
+        qty: cartItem.qty,
+        lineTotal: product.price * cartItem.qty
+      };
+    })
+    .filter(Boolean);
+}
+
+function getCartTotal(){
+  return getCartDetails().reduce((sum, item) => sum + item.lineTotal, 0);
+}
+
+function renderCart(){
+  const cartDetails = getCartDetails();
+  const totalQty = cartDetails.reduce((sum, item) => sum + item.qty, 0);
+
+  cartCountTop.textContent = totalQty;
+  cartCountFloat.textContent = totalQty;
+  cartTotal.textContent = formatPrice(getCartTotal());
+
+  if(cartDetails.length === 0){
+    cartItems.innerHTML = `
+      <div class="empty-state">
+        Sepetin boş. Menüden ürün ekleyebilirsin.
+      </div>
+    `;
+  }else{
+    cartItems.innerHTML = cartDetails.map(item => `
+      <div class="cart-item">
+        <div class="cart-item-top">
+          <div>
+            <div class="cart-item-name">${item.name}</div>
+            <div class="product-desc">${formatPrice(item.price)} x ${item.qty}</div>
+          </div>
+          <div class="cart-item-price">${formatPrice(item.lineTotal)}</div>
+        </div>
+
+        <div class="qty-controls">
+          <div class="qty-group">
+            <button class="qty-btn" type="button" data-action="decrease" data-id="${item.id}" aria-label="${item.name} adet azalt">−</button>
+            <strong>${item.qty}</strong>
+            <button class="qty-btn" type="button" data-action="increase" data-id="${item.id}" aria-label="${item.name} adet artır">+</button>
+          </div>
+
+          <button class="remove-btn" type="button" data-action="remove" data-id="${item.id}">
+            Sil
+          </button>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  cartItems.querySelectorAll("[data-action]").forEach(button => {
+    button.addEventListener("click", function(){
+      const id = this.dataset.id;
+      const action = this.dataset.action;
+
+      if(action === "increase") increaseQty(id);
+      if(action === "decrease") decreaseQty(id);
+      if(action === "remove") removeFromCart(id);
+    });
   });
 
-  if(current){
-    setActive(current);
+  updateWhatsappLink();
+}
+
+function updateWhatsappLink(){
+  const cartDetails = getCartDetails();
+
+  if(cartDetails.length === 0){
+    whatsappOrder.href = `https://wa.me/${RESTAURANT.phone}?text=${encodeURIComponent("Merhaba, menüden sipariş vermek istiyorum.")}`;
+    whatsappOrder.setAttribute("aria-disabled", "true");
+    return;
   }
-});
 
-setActive('et');
+  const lines = [];
+  lines.push(`Merhaba ${RESTAURANT.name}, sipariş vermek istiyorum.`);
+  lines.push("");
+  lines.push("Siparişim:");
+
+  cartDetails.forEach(item => {
+    lines.push(`- ${item.qty} adet ${item.name} = ${formatPrice(item.lineTotal)}`);
+  });
+
+  lines.push("");
+  lines.push(`Toplam: ${formatPrice(getCartTotal())}`);
+
+  const note = customerNote.value.trim();
+  if(note){
+    lines.push("");
+    lines.push(`Not: ${note}`);
+  }
+
+  lines.push("");
+  lines.push("Adres/teslimat bilgisini paylaşacağım.");
+
+  whatsappOrder.href = `https://wa.me/${RESTAURANT.phone}?text=${encodeURIComponent(lines.join("\n"))}`;
+  whatsappOrder.removeAttribute("aria-disabled");
+}
+
+function openCart(){
+  cartOverlay.hidden = false;
+
+  requestAnimationFrame(() => {
+    cartOverlay.classList.add("show");
+    cartDrawer.classList.add("show");
+    cartDrawer.setAttribute("aria-hidden", "false");
+    document.getElementById("closeCart").focus();
+  });
+}
+
+function closeCart(){
+  cartOverlay.classList.remove("show");
+  cartDrawer.classList.remove("show");
+  cartDrawer.setAttribute("aria-hidden", "true");
+
+  setTimeout(() => {
+    cartOverlay.hidden = true;
+  }, 250);
+}
+
+function saveCart(){
+  localStorage.setItem("altinsehirCart", JSON.stringify(state.cart));
+}
+
+function loadCart(){
+  try{
+    return JSON.parse(localStorage.getItem("altinsehirCart")) || [];
+  }catch(error){
+    return [];
+  }
+}
+
+let toastTimer;
+
+function showToast(message){
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 1800);
+}
+
+function updateOpenStatus(){
+  const status = document.getElementById("openStatus");
+  const hour = new Date().getHours();
+
+  if(hour >= 10 && hour < 23){
+    status.textContent = "Şu an siparişe açığız";
+  }else{
+    status.textContent = "Mesaj bırakabilirsiniz";
+  }
+}
+
+renderCategories();
+renderProducts();
+renderCart();
+updateOpenStatus();
 </script>
-
 </body>
 </html>
