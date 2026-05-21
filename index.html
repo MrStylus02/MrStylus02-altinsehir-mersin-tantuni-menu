@@ -4,71 +4,33 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Altınşehir Mersin Tantuni | QR Menü</title>
-<meta name="description" content="Altınşehir Mersin Tantuni dijital QR menüsü. Tantuni, çiğköfte ve içecek çeşitleri." />
+<meta name="description" content="Altınşehir Mersin Tantuni dijital QR menüsü." />
 <meta name="theme-color" content="#120000" />
 
 <style>
 :root{
   --bg:#080808;
   --panel:#141414;
-  --panel-2:#1d1d1d;
   --gold:#ffbf3c;
-  --gold-2:#d89b1d;
+  --gold2:#d89b1d;
   --red:#c1121f;
   --green:#25d366;
-  --text:#ffffff;
-  --muted:#c9c9c9;
+  --muted:#cfcfcf;
   --border:rgba(255,191,60,.35);
-  --shadow:0 18px 45px rgba(0,0,0,.45);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-}
-
+html{scroll-behavior:smooth}
 body{
-  font-family:Arial, Helvetica, sans-serif;
-  background:
-    radial-gradient(circle at top,#4b0505 0%,#120000 34%,#080808 100%);
-  color:var(--text);
-  min-height:100vh;
-}
-
-button,
-input{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-a{
-  color:inherit;
-}
-
-.skip-link{
-  position:absolute;
-  top:-50px;
-  left:12px;
-  background:var(--gold);
-  color:#111;
-  padding:10px 14px;
-  border-radius:10px;
-  z-index:9999;
-  font-weight:bold;
-}
-
-.skip-link:focus{
-  top:12px;
+  font-family:Arial, sans-serif;
+  background:radial-gradient(circle at top,#4b0505,#120000 35%,#080808);
+  color:white;
 }
 
 .hero{
   text-align:center;
   padding:22px 15px 28px;
-  border-bottom:4px solid var(--gold-2);
+  border-bottom:4px solid var(--gold2);
 }
 
 .top-actions{
@@ -80,44 +42,26 @@ a{
 }
 
 .action-btn{
-  border:0;
-  text-decoration:none;
   min-height:48px;
+  border:0;
   border-radius:999px;
-  font-weight:800;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  box-shadow:var(--shadow);
-  transition:.2s ease;
-}
-
-.action-btn:hover,
-.action-btn:focus-visible{
-  transform:translateY(-2px);
-  outline:2px solid var(--gold);
-  outline-offset:3px;
-}
-
-.call-btn{
-  background:linear-gradient(135deg,#0f9b4a,var(--green));
-}
-
-.insta-btn{
-  background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4);
-}
-
-.cart-top-btn{
-  background:linear-gradient(135deg,#2b2b2b,#111);
-  border:1px solid var(--border);
   color:white;
+  text-decoration:none;
+  font-weight:900;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
 }
+
+.call-btn{background:linear-gradient(135deg,#0f9b4a,#25d366)}
+.insta-btn{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4)}
+.cart-top-btn{background:#181818;border:1px solid var(--border)}
 
 .logo{
-  width:220px;
-  max-width:78%;
-  height:auto;
+  width:210px;
+  max-width:80%;
   margin:12px auto;
   display:block;
   filter:drop-shadow(0 0 20px rgba(0,0,0,.75));
@@ -126,43 +70,21 @@ a{
 h1{
   color:#ffcc55;
   font-size:clamp(24px,5vw,38px);
-  letter-spacing:.5px;
 }
 
 .slogan{
-  font-size:clamp(15px,3vw,20px);
   margin-top:8px;
+  font-size:clamp(15px,3vw,20px);
   font-weight:bold;
-}
-
-.status{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin-top:15px;
-  padding:9px 14px;
-  border-radius:999px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.18);
-  color:#f4f4f4;
-  font-weight:bold;
-}
-
-.status-dot{
-  width:10px;
-  height:10px;
-  background:var(--green);
-  border-radius:50%;
-  box-shadow:0 0 15px var(--green);
 }
 
 .sticky-tools{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(8,8,8,.94);
+  background:rgba(8,8,8,.95);
   backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.1);
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
 
 .tools-inner{
@@ -171,20 +93,16 @@ h1{
   padding:12px 15px;
 }
 
-.search-wrap{
-  position:relative;
-  margin-bottom:12px;
-}
-
 .search-input{
   width:100%;
-  min-height:48px;
+  height:48px;
+  border-radius:16px;
   border:1px solid var(--border);
   background:#111;
   color:white;
-  border-radius:16px;
-  padding:0 44px 0 16px;
+  padding:0 15px;
   outline:none;
+  margin-bottom:12px;
 }
 
 .search-input:focus{
@@ -192,20 +110,11 @@ h1{
   box-shadow:0 0 0 3px rgba(255,191,60,.18);
 }
 
-.search-icon{
-  position:absolute;
-  right:16px;
-  top:50%;
-  transform:translateY(-50%);
-  color:var(--gold);
-}
-
 .category-tabs{
   display:flex;
   gap:10px;
   overflow-x:auto;
   padding-bottom:4px;
-  scrollbar-width:thin;
 }
 
 .category-tab{
@@ -214,42 +123,30 @@ h1{
   color:white;
   border-radius:999px;
   padding:11px 16px;
-  font-weight:800;
+  font-weight:900;
   white-space:nowrap;
-  transition:.2s ease;
 }
 
-.category-tab:hover,
-.category-tab:focus-visible,
 .category-tab.active{
   background:var(--gold);
   color:#111;
-  box-shadow:0 0 18px rgba(216,155,29,.45);
 }
 
 .container{
   max-width:1120px;
   margin:auto;
-  padding:26px 15px 120px;
+  padding:25px 15px 120px;
 }
 
 .category-title{
-  margin:14px 0 16px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:12px;
+  align-items:center;
+  margin-bottom:16px;
 }
 
-.category-title h2{
-  color:var(--gold);
-  font-size:24px;
-}
-
-.result-count{
-  color:var(--muted);
-  font-size:14px;
-}
+.category-title h2{color:var(--gold)}
+.result-count{color:var(--muted)}
 
 .products-grid{
   display:grid;
@@ -258,23 +155,35 @@ h1{
 }
 
 .product-card{
-  background:linear-gradient(180deg,var(--panel-2),#0b0b0b);
+  background:linear-gradient(180deg,#1c1c1c,#090909);
   border:1px solid var(--border);
   border-radius:22px;
-  padding:18px;
-  box-shadow:0 10px 28px rgba(0,0,0,.25);
+  overflow:hidden;
+  box-shadow:0 15px 35px rgba(0,0,0,.35);
   display:flex;
   flex-direction:column;
-  gap:12px;
-  min-height:220px;
-  content-visibility:auto;
-  contain-intrinsic-size:220px;
+}
+
+.product-image{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  background:#111;
+  border-bottom:1px solid rgba(255,191,60,.2);
+}
+
+.product-body{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  flex:1;
 }
 
 .product-head{
   display:flex;
   justify-content:space-between;
-  gap:12px;
+  gap:10px;
 }
 
 .product-name{
@@ -286,18 +195,7 @@ h1{
 .product-desc{
   color:var(--muted);
   font-size:14px;
-  line-height:1.45;
-}
-
-.badge{
-  display:inline-flex;
-  width:max-content;
-  background:var(--red);
-  color:white;
-  font-size:12px;
-  padding:5px 9px;
-  border-radius:999px;
-  font-weight:800;
+  line-height:1.4;
 }
 
 .price{
@@ -310,28 +208,31 @@ h1{
   height:max-content;
 }
 
+.badge{
+  width:max-content;
+  background:var(--red);
+  color:white;
+  font-size:12px;
+  padding:5px 9px;
+  border-radius:999px;
+  font-weight:900;
+}
+
 .add-btn{
   margin-top:auto;
   border:0;
-  min-height:45px;
+  height:45px;
   border-radius:14px;
-  background:linear-gradient(135deg,var(--gold),#ffdb79);
+  background:linear-gradient(135deg,var(--gold),#ffdc7b);
   color:#111;
   font-weight:900;
-  transition:.2s ease;
-}
-
-.add-btn:hover,
-.add-btn:focus-visible{
-  transform:translateY(-2px);
-  box-shadow:0 0 20px rgba(255,191,60,.3);
 }
 
 .empty-state{
   background:#111;
   border:1px dashed var(--border);
-  border-radius:20px;
-  padding:25px;
+  border-radius:18px;
+  padding:24px;
   text-align:center;
   color:var(--muted);
 }
@@ -359,9 +260,7 @@ h1{
   line-height:1.5;
 }
 
-.footer-item strong{
-  color:var(--gold);
-}
+.footer-item strong{color:var(--gold)}
 
 .float-buttons{
   position:fixed;
@@ -375,9 +274,9 @@ h1{
 
 .float-buttons a,
 .float-buttons button{
+  border:0;
   color:white;
   text-decoration:none;
-  border:0;
   padding:13px 16px;
   border-radius:999px;
   font-weight:900;
@@ -389,16 +288,11 @@ h1{
 .cart-float{background:#222;border:1px solid var(--border)!important}
 
 .cart-count{
-  display:inline-flex;
-  min-width:22px;
-  height:22px;
-  align-items:center;
-  justify-content:center;
   background:var(--gold);
   color:#111;
   border-radius:999px;
-  font-size:12px;
-  margin-left:6px;
+  padding:3px 7px;
+  margin-left:5px;
 }
 
 .cart-overlay{
@@ -406,15 +300,10 @@ h1{
   inset:0;
   background:rgba(0,0,0,.65);
   z-index:500;
-  opacity:0;
-  pointer-events:none;
-  transition:.2s ease;
+  display:none;
 }
 
-.cart-overlay.show{
-  opacity:1;
-  pointer-events:auto;
-}
+.cart-overlay.show{display:block}
 
 .cart-drawer{
   position:fixed;
@@ -425,15 +314,13 @@ h1{
   background:#101010;
   z-index:600;
   transform:translateX(100%);
-  transition:.25s ease;
+  transition:.25s;
   display:flex;
   flex-direction:column;
   border-left:1px solid var(--border);
 }
 
-.cart-drawer.show{
-  transform:translateX(0);
-}
+.cart-drawer.show{transform:translateX(0)}
 
 .cart-header{
   padding:18px;
@@ -443,11 +330,7 @@ h1{
   align-items:center;
 }
 
-.cart-header h2{
-  color:var(--gold);
-  font-size:22px;
-}
-
+.cart-header h2{color:var(--gold)}
 .close-cart{
   background:#222;
   color:white;
@@ -479,26 +362,10 @@ h1{
   margin-bottom:10px;
 }
 
-.cart-item-name{
-  font-weight:900;
-}
-
-.cart-item-price{
-  color:var(--gold);
-  font-weight:900;
-}
-
 .qty-controls{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:8px;
-}
-
-.qty-group{
-  display:flex;
   align-items:center;
-  gap:8px;
 }
 
 .qty-btn{
@@ -527,7 +394,6 @@ h1{
 .total-row{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   margin-bottom:12px;
   font-size:20px;
   font-weight:900;
@@ -542,19 +408,18 @@ h1{
   color:white;
   padding:12px;
   margin-bottom:10px;
-  outline:none;
 }
 
 .order-btn{
   display:flex;
-  align-items:center;
   justify-content:center;
-  text-decoration:none;
+  align-items:center;
   width:100%;
   min-height:50px;
   border-radius:15px;
   background:var(--green);
   color:white;
+  text-decoration:none;
   font-weight:900;
   margin-bottom:10px;
 }
@@ -572,24 +437,18 @@ h1{
 .toast{
   position:fixed;
   left:50%;
-  bottom:24px;
-  transform:translateX(-50%) translateY(20px);
+  bottom:25px;
+  transform:translateX(-50%);
   background:#111;
-  color:white;
   border:1px solid var(--border);
   border-radius:999px;
   padding:12px 18px;
   z-index:900;
   opacity:0;
-  pointer-events:none;
-  transition:.25s ease;
-  box-shadow:var(--shadow);
+  transition:.2s;
 }
 
-.toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
-}
+.toast.show{opacity:1}
 
 @media(max-width:900px){
   .products-grid{grid-template-columns:repeat(2,1fr)}
@@ -599,95 +458,64 @@ h1{
 @media(max-width:620px){
   .products-grid{grid-template-columns:1fr}
   .footer-box{grid-template-columns:1fr}
-  .logo{width:185px}
   .float-buttons{
-    left:12px;
-    right:12px;
+    left:10px;
+    right:10px;
     bottom:10px;
     flex-direction:row;
   }
   .float-buttons a,
   .float-buttons button{
     flex:1;
-    padding:12px 10px;
     font-size:14px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  *{
-    animation:none!important;
-    transition:none!important;
-    scroll-behavior:auto!important;
+    padding:12px 8px;
   }
 }
 </style>
 </head>
 
 <body>
-<a href="#menu" class="skip-link">Menüye geç</a>
 
 <header class="hero">
-  <div class="top-actions" aria-label="Hızlı işlemler">
-    <a href="tel:05313885306" class="action-btn call-btn" aria-label="Restoranı ara">📞 Hemen Ara</a>
-    <a href="https://instagram.com/mersin_tantuni_altinsehir" target="_blank" rel="noopener" class="action-btn insta-btn" aria-label="Instagram sayfasını aç">📸 Instagram</a>
-    <button class="action-btn cart-top-btn" type="button" id="openCartTop" aria-label="Sepeti aç">
-      🛒 Sepetim <span class="cart-count" id="cartCountTop">0</span>
-    </button>
+  <div class="top-actions">
+    <a href="tel:05313885306" class="action-btn call-btn">📞 Hemen Ara</a>
+    <a href="https://instagram.com/mersin_tantuni_altinsehir" target="_blank" class="action-btn insta-btn">📸 Instagram</a>
+    <button class="action-btn cart-top-btn" id="openCartTop">🛒 Sepetim <span class="cart-count" id="cartCountTop">0</span></button>
   </div>
 
-  <img src="logo.png" class="logo" alt="Altınşehir Mersin Tantuni logosu" width="220" height="220" loading="eager" />
+  <img src="logo.png" class="logo" alt="Altınşehir Mersin Tantuni Logo" />
 
   <h1>ALTINŞEHİR MERSİN TANTUNİ</h1>
   <p class="slogan">Tantunide Usta, Çiğköftede Efsane!</p>
-
-  <div class="status" aria-label="Restoran durumu">
-    <span class="status-dot" aria-hidden="true"></span>
-    <span id="openStatus">Siparişe hazırız</span>
-  </div>
 </header>
 
-<section class="sticky-tools" aria-label="Menü araçları">
+<section class="sticky-tools">
   <div class="tools-inner">
-    <div class="search-wrap">
-      <label for="searchInput" class="visually-hidden"></label>
-      <input
-        id="searchInput"
-        class="search-input"
-        type="search"
-        placeholder="Menüde ara: tavuk, ayran, yoğurtlu..."
-        aria-label="Menüde ürün ara"
-        autocomplete="off"
-      />
-      <span class="search-icon" aria-hidden="true">🔎</span>
-    </div>
-
-    <nav class="category-tabs" id="categoryTabs" aria-label="Menü kategorileri"></nav>
+    <input id="searchInput" class="search-input" type="search" placeholder="Menüde ara: tavuk, ayran, yoğurtlu..." />
+    <nav class="category-tabs" id="categoryTabs"></nav>
   </div>
 </section>
 
-<main class="container" id="menu">
+<main class="container">
   <div class="category-title">
     <h2 id="activeCategoryTitle">Tüm Ürünler</h2>
     <span class="result-count" id="resultCount">0 ürün</span>
   </div>
 
-  <section class="products-grid" id="productsGrid" aria-live="polite"></section>
+  <section class="products-grid" id="productsGrid"></section>
 </main>
 
 <footer class="footer">
   <div class="footer-box">
     <div class="footer-item">
       <strong>📞 Sipariş</strong><br />
-      <a href="tel:05313885306">0531 388 53 06</a>
+      0531 388 53 06
     </div>
-
     <div class="footer-item">
       <strong>📍 Adres</strong><br />
       Altınşehir, 3035. Sk. no:10/1<br />
       Adıyaman Merkez / Adıyaman
     </div>
-
     <div class="footer-item">
       <strong>🍽️ Afiyet Olsun</strong><br />
       Lezzetin Adresi
@@ -695,20 +523,18 @@ h1{
   </div>
 </footer>
 
-<div class="float-buttons" aria-label="Sabit hızlı işlemler">
-  <a class="whatsapp" href="https://wa.me/905313885306?text=Merhaba, menüden sipariş vermek istiyorum." target="_blank" rel="noopener">WhatsApp</a>
-  <a class="map" href="https://www.google.com/maps/search/?api=1&query=Altınşehir,3035.Sk.no:10/1,02040,Adıyaman" target="_blank" rel="noopener">Konum</a>
-  <button class="cart-float" id="openCartFloat" type="button">
-    Sepet <span class="cart-count" id="cartCountFloat">0</span>
-  </button>
+<div class="float-buttons">
+  <a class="whatsapp" href="https://wa.me/905313885306?text=Merhaba, menüden sipariş vermek istiyorum." target="_blank">WhatsApp</a>
+  <a class="map" href="https://www.google.com/maps/search/?api=1&query=Altınşehir,3035.Sk.no:10/1,02040,Adıyaman" target="_blank">Konum</a>
+  <button class="cart-float" id="openCartFloat">Sepet <span class="cart-count" id="cartCountFloat">0</span></button>
 </div>
 
-<div class="cart-overlay" id="cartOverlay" hidden></div>
+<div class="cart-overlay" id="cartOverlay"></div>
 
-<aside class="cart-drawer" id="cartDrawer" aria-label="Sepet" aria-hidden="true">
+<aside class="cart-drawer" id="cartDrawer">
   <div class="cart-header">
     <h2>🛒 Sepetim</h2>
-    <button class="close-cart" id="closeCart" type="button" aria-label="Sepeti kapat">×</button>
+    <button class="close-cart" id="closeCart">×</button>
   </div>
 
   <div class="cart-items" id="cartItems"></div>
@@ -719,192 +545,198 @@ h1{
       <span id="cartTotal">0 TL</span>
     </div>
 
-    <input
-      class="customer-note"
-      id="customerNote"
-      type="text"
-      placeholder="Not ekle: acısız olsun, soğansız olsun..."
-      aria-label="Sipariş notu"
-    />
+    <input class="customer-note" id="customerNote" type="text" placeholder="Not: acısız, soğansız, bol limon..." />
 
-    <a class="order-btn" id="whatsappOrder" href="#" target="_blank" rel="noopener">
-      WhatsApp ile Sipariş Ver
-    </a>
-
-    <button class="clear-btn" id="clearCart" type="button">Sepeti Temizle</button>
+    <a class="order-btn" id="whatsappOrder" href="#" target="_blank">WhatsApp ile Sipariş Ver</a>
+    <button class="clear-btn" id="clearCart">Sepeti Temizle</button>
   </div>
 </aside>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="toast" id="toast"></div>
 
 <script>
 const RESTAURANT = {
   name: "Altınşehir Mersin Tantuni",
-  phone: "905313885306",
-  address: "Altınşehir, 3035. Sk. no:10/1, Adıyaman Merkez / Adıyaman"
+  phone: "905313885306"
 };
 
-/*
-  FİYAT GÜNCELLEME ALANI
-  Sadece aşağıdaki price değerlerini değiştirmen yeterli.
-*/
 const categories = [
-  { id: "all", name: "Tüm Ürünler", icon: "🍽️" },
-  { id: "et", name: "Et Tantuni", icon: "🥩" },
-  { id: "tavuk", name: "Tavuk Tantuni", icon: "🐔" },
-  { id: "cig", name: "Çiğköfte", icon: "🌯" },
-  { id: "icecek", name: "İçecekler", icon: "🥤" }
+  { id:"all", name:"Tüm Ürünler", icon:"🍽️" },
+  { id:"et", name:"Et Tantuni", icon:"🥩" },
+  { id:"tavuk", name:"Tavuk Tantuni", icon:"🐔" },
+  { id:"cig", name:"Çiğköfte", icon:"🌯" },
+  { id:"icecek", name:"İçecekler", icon:"🥤" }
 ];
 
 const products = [
   {
-    id: "et-lavas",
-    category: "et",
-    name: "Lavaş Et Tantuni",
-    desc: "Soğan, maydanoz ve domates",
-    price: 250,
-    badge: "🔥 En Çok Satan"
+    id:"et-lavas",
+    category:"et",
+    name:"Lavaş Et Tantuni",
+    desc:"Soğan, maydanoz ve domates",
+    price:250,
+    badge:"🔥 En Çok Satan",
+    image:"images/lavaş-et.jpg"
   },
   {
-    id: "et-somun",
-    category: "et",
-    name: "Somun Et Tantuni",
-    desc: "Soğan, maydanoz ve domates",
-    price: 250
+    id:"et-somun",
+    category:"et",
+    name:"Somun Et Tantuni",
+    desc:"Soğan, maydanoz ve domates",
+    price:250,
+    image:"images/somun-et.jpg"
   },
   {
-    id: "et-dilim",
-    category: "et",
-    name: "Dilimlenmiş Et Tantuni",
-    desc: "Soğan, maydanoz ve domates",
-    price: 260
+    id:"et-dilim",
+    category:"et",
+    name:"Dilimlenmiş Et Tantuni",
+    desc:"Soğan, maydanoz ve domates",
+    price:260,
+    image:"images/dilimli-et.jpg"
   },
   {
-    id: "et-yogurtlu",
-    category: "et",
-    name: "Yoğurtlu Et Tantuni",
-    desc: "Soğan, maydanoz, domates, yoğurt ve sos",
-    price: 280
+    id:"et-yogurtlu",
+    category:"et",
+    name:"Yoğurtlu Et Tantuni",
+    desc:"Soğan, maydanoz, domates, yoğurt ve sos",
+    price:280,
+    image:"images/yogurtlu-et-tantuni.jpg"
   },
   {
-    id: "tavuk-lavas",
-    category: "tavuk",
-    name: "Lavaş Tavuk Tantuni",
-    desc: "Soğan, maydanoz ve domates",
-    price: 100,
-    badge: "⭐ Favori"
+    id:"tavuk-lavas",
+    category:"tavuk",
+    name:"Lavaş Tavuk Tantuni",
+    desc:"Soğan, maydanoz ve domates",
+    price:100,
+    badge:"⭐ Favori",
+    image:"images/lavaş-tavuk.jpg"
   },
   {
-    id: "tavuk-somun",
-    category: "tavuk",
-    name: "Somun Tavuk Tantuni",
-    desc: "Soğan, maydanoz ve domates",
-    price: 100
+    id:"tavuk-somun",
+    category:"tavuk",
+    name:"Somun Tavuk Tantuni",
+    desc:"Soğan, maydanoz ve domates",
+    price:100,
+    image:"images/somun-tavuk.jpg"
   },
   {
-    id: "tavuk-dilim",
-    category: "tavuk",
-    name: "Dilimlenmiş Tavuk Tantuni",
-    desc: "Soğan, maydanoz ve domates",
-    price: 120
+    id:"tavuk-dilim",
+    category:"tavuk",
+    name:"Dilimlenmiş Tavuk Tantuni",
+    desc:"Soğan, maydanoz ve domates",
+    price:120,
+    image:"images/dilimli-tavuk.jpg"
   },
   {
-    id: "tavuk-yogurtlu",
-    category: "tavuk",
-    name: "Yoğurtlu Tavuk Tantuni",
-    desc: "Soğan, maydanoz, domates, yoğurt ve sos",
-    price: 150
+    id:"tavuk-yogurtlu",
+    category:"tavuk",
+    name:"Yoğurtlu Tavuk Tantuni",
+    desc:"Soğan, maydanoz, domates, yoğurt ve sos",
+    price:150,
+    image:"images/yogurtlu-tavuk.jpg"
   },
   {
-    id: "cig-durum",
-    category: "cig",
-    name: "Dürüm Çiğköfte",
-    desc: "Nar ekşisi ve yeşillik",
-    price: 50
+    id:"cig-durum",
+    category:"cig",
+    name:"Dürüm Çiğköfte",
+    desc:"Nar ekşisi ve yeşillik",
+    price:50,
+    image:"images/dürüm-çiğköfte.jpg"
   },
   {
-    id: "cig-porsiyon",
-    category: "cig",
-    name: "Porsiyon Çiğköfte",
-    desc: "Nar ekşisi ve yeşillik",
-    price: 150
+    id:"cig-porsiyon",
+    category:"cig",
+    name:"Porsiyon Çiğköfte",
+    desc:"Nar ekşisi ve yeşillik",
+    price:150,
+    image:"images/porsiyon-cigkofte.jpg"
   },
   {
-    id: "icecek-kutu-kola",
-    category: "icecek",
-    name: "Kutu Kola",
-    desc: "Soğuk içecek",
-    price: 60
+    id:"kutu-kola",
+    category:"icecek",
+    name:"Kutu Kola",
+    desc:"Soğuk içecek",
+    price:60,
+    image:"images/kutu-kola.jpg"
   },
   {
-    id: "icecek-soguk-cay",
-    category: "icecek",
-    name: "Soğuk Çay",
-    desc: "Soğuk içecek",
-    price: 60
+    id:"soguk-cay",
+    category:"icecek",
+    name:"Soğuk Çay",
+    desc:"Soğuk içecek",
+    price:60,
+    image:"images/soguk-cay.jpg"
   },
   {
-    id: "icecek-sise-kola",
-    category: "icecek",
-    name: "Şişe Kola",
-    desc: "Soğuk içecek",
-    price: 40
+    id:"sise-kola",
+    category:"icecek",
+    name:"Şişe Kola",
+    desc:"Soğuk içecek",
+    price:40,
+    image:"images/kutu-kola.jpg"
   },
   {
-    id: "icecek-salgam",
-    category: "icecek",
-    name: "Şalgam",
-    desc: "Soğuk içecek",
-    price: 40
+    id:"salgam",
+    category:"icecek",
+    name:"Şalgam",
+    desc:"Soğuk içecek",
+    price:40,
+    image:"images/şalgam.jpg"
   },
   {
-    id: "icecek-soda",
-    category: "icecek",
-    name: "Soda",
-    desc: "Soğuk içecek",
-    price: 40
+    id:"soda",
+    category:"icecek",
+    name:"Soda",
+    desc:"Soğuk içecek",
+    price:40,
+    image:"images/soda.jpg"
   },
   {
-    id: "icecek-buyuk-ayran",
-    category: "icecek",
-    name: "Büyük Ayran",
-    desc: "Soğuk içecek",
-    price: 30
+    id:"buyuk-ayran",
+    category:"icecek",
+    name:"Büyük Ayran",
+    desc:"Soğuk içecek",
+    price:30,
+    image:"images/büyük-ayran.jpg"
   },
   {
-    id: "icecek-acik-ayran",
-    category: "icecek",
-    name: "Açık Ayran",
-    desc: "Soğuk içecek",
-    price: 30
+    id:"acik-ayran",
+    category:"icecek",
+    name:"Açık Ayran",
+    desc:"Soğuk içecek",
+    price:30,
+    image:"images/açık ayran.jpg"
   },
   {
-    id: "icecek-kucuk-ayran",
-    category: "icecek",
-    name: "Küçük Ayran",
-    desc: "Soğuk içecek",
-    price: 20
+    id:"kucuk-ayran",
+    category:"icecek",
+    name:"Küçük Ayran",
+    desc:"Soğuk içecek",
+    price:20,
+    image:"images/kucuk-ayran.jpg"
   },
   {
-    id: "icecek-su",
-    category: "icecek",
-    name: "Su",
-    desc: "Soğuk içecek",
-    price: 15
+    id:"su",
+    category:"icecek",
+    name:"Su",
+    desc:"Soğuk içecek",
+    price:15,
+    image:"images/su.jpg"
   },
   {
-    id: "icecek-cay",
-    category: "icecek",
-    name: "Çay",
-    desc: "Sıcak içecek",
-    price: 15
+    id:"cay",
+    category:"icecek",
+    name:"Çay",
+    desc:"Sıcak içecek",
+    price:15,
+    image:"images/çay.jpg"
   }
 ];
 
 const state = {
-  activeCategory: "all",
-  search: "",
-  cart: loadCart()
+  activeCategory:"all",
+  search:"",
+  cart:JSON.parse(localStorage.getItem("altinsehirCart") || "[]")
 };
 
 const categoryTabs = document.getElementById("categoryTabs");
@@ -919,26 +751,20 @@ const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
 const whatsappOrder = document.getElementById("whatsappOrder");
 const customerNote = document.getElementById("customerNote");
-
 const cartCountTop = document.getElementById("cartCountTop");
 const cartCountFloat = document.getElementById("cartCountFloat");
 const toast = document.getElementById("toast");
 
-document.getElementById("openCartTop").addEventListener("click", openCart);
-document.getElementById("openCartFloat").addEventListener("click", openCart);
-document.getElementById("closeCart").addEventListener("click", closeCart);
-document.getElementById("cartOverlay").addEventListener("click", closeCart);
-document.getElementById("clearCart").addEventListener("click", clearCart);
-
-customerNote.addEventListener("input", updateWhatsappLink);
+document.getElementById("openCartTop").onclick = openCart;
+document.getElementById("openCartFloat").onclick = openCart;
+document.getElementById("closeCart").onclick = closeCart;
+cartOverlay.onclick = closeCart;
+document.getElementById("clearCart").onclick = clearCart;
+customerNote.oninput = updateWhatsappLink;
 
 searchInput.addEventListener("input", function(){
   state.search = this.value.trim().toLocaleLowerCase("tr-TR");
   renderProducts();
-});
-
-document.addEventListener("keydown", function(e){
-  if(e.key === "Escape") closeCart();
 });
 
 function formatPrice(value){
@@ -946,124 +772,107 @@ function formatPrice(value){
 }
 
 function renderCategories(){
-  categoryTabs.innerHTML = categories.map(category => `
-    <button
-      type="button"
-      class="category-tab ${state.activeCategory === category.id ? "active" : ""}"
-      data-category="${category.id}"
-      aria-pressed="${state.activeCategory === category.id}"
-    >
-      ${category.icon} ${category.name}
+  categoryTabs.innerHTML = categories.map(cat => `
+    <button class="category-tab ${state.activeCategory === cat.id ? "active" : ""}" data-category="${cat.id}">
+      ${cat.icon} ${cat.name}
     </button>
   `).join("");
 
-  categoryTabs.querySelectorAll(".category-tab").forEach(button => {
-    button.addEventListener("click", function(){
-      state.activeCategory = this.dataset.category;
+  document.querySelectorAll(".category-tab").forEach(btn => {
+    btn.onclick = () => {
+      state.activeCategory = btn.dataset.category;
       renderCategories();
       renderProducts();
-      document.getElementById("menu").scrollIntoView({ behavior:"smooth", block:"start" });
-    });
+    };
   });
 }
 
-function getFilteredProducts(){
-  return products.filter(product => {
-    const categoryMatch = state.activeCategory === "all" || product.category === state.activeCategory;
-    const searchText = `${product.name} ${product.desc}`.toLocaleLowerCase("tr-TR");
-    const searchMatch = !state.search || searchText.includes(state.search);
-    return categoryMatch && searchMatch;
+function filteredProducts(){
+  return products.filter(p => {
+    const categoryOk = state.activeCategory === "all" || p.category === state.activeCategory;
+    const text = `${p.name} ${p.desc}`.toLocaleLowerCase("tr-TR");
+    const searchOk = !state.search || text.includes(state.search);
+    return categoryOk && searchOk;
   });
 }
 
 function renderProducts(){
-  const filtered = getFilteredProducts();
-  const category = categories.find(item => item.id === state.activeCategory);
+  const list = filteredProducts();
+  const category = categories.find(c => c.id === state.activeCategory);
 
-  activeCategoryTitle.textContent = state.search
-    ? `"${state.search}" arama sonucu`
-    : category.name;
+  activeCategoryTitle.textContent = state.search ? `"${state.search}" arama sonucu` : category.name;
+  resultCount.textContent = `${list.length} ürün`;
 
-  resultCount.textContent = `${filtered.length} ürün`;
-
-  if(filtered.length === 0){
-    productsGrid.innerHTML = `
-      <div class="empty-state">
-        Aradığın ürün bulunamadı. Farklı bir kelime deneyebilirsin.
-      </div>
-    `;
+  if(list.length === 0){
+    productsGrid.innerHTML = `<div class="empty-state">Ürün bulunamadı.</div>`;
     return;
   }
 
-  productsGrid.innerHTML = filtered.map(product => `
+  productsGrid.innerHTML = list.map(p => `
     <article class="product-card">
-      <div class="product-head">
-        <div>
-          <h3 class="product-name">${product.name}</h3>
-          <p class="product-desc">${product.desc}</p>
+      <img
+        class="product-image"
+        src="${p.image}"
+        alt="${p.name}"
+        loading="lazy"
+        onerror="this.src='logo.png'"
+      />
+
+      <div class="product-body">
+        <div class="product-head">
+          <div>
+            <h3 class="product-name">${p.name}</h3>
+            <p class="product-desc">${p.desc}</p>
+          </div>
+          <span class="price">${formatPrice(p.price)}</span>
         </div>
-        <span class="price">${formatPrice(product.price)}</span>
+
+        ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
+
+        <button class="add-btn" data-id="${p.id}">
+          Sepete Ekle
+        </button>
       </div>
-
-      ${product.badge ? `<span class="badge">${product.badge}</span>` : ""}
-
-      <button
-        type="button"
-        class="add-btn"
-        data-id="${product.id}"
-        aria-label="${product.name} sepete ekle"
-      >
-        Sepete Ekle
-      </button>
     </article>
   `).join("");
 
-  productsGrid.querySelectorAll(".add-btn").forEach(button => {
-    button.addEventListener("click", function(){
-      addToCart(this.dataset.id);
-    });
+  document.querySelectorAll(".add-btn").forEach(btn => {
+    btn.onclick = () => addToCart(btn.dataset.id);
   });
 }
 
-function addToCart(productId){
-  const existing = state.cart.find(item => item.id === productId);
-
-  if(existing){
-    existing.qty += 1;
-  }else{
-    state.cart.push({ id: productId, qty: 1 });
-  }
+function addToCart(id){
+  const item = state.cart.find(i => i.id === id);
+  if(item) item.qty++;
+  else state.cart.push({id, qty:1});
 
   saveCart();
   renderCart();
   showToast("Ürün sepete eklendi");
 }
 
-function decreaseQty(productId){
-  const existing = state.cart.find(item => item.id === productId);
-  if(!existing) return;
+function increaseQty(id){
+  const item = state.cart.find(i => i.id === id);
+  if(item) item.qty++;
+  saveCart();
+  renderCart();
+}
 
-  existing.qty -= 1;
+function decreaseQty(id){
+  const item = state.cart.find(i => i.id === id);
+  if(!item) return;
 
-  if(existing.qty <= 0){
-    state.cart = state.cart.filter(item => item.id !== productId);
+  item.qty--;
+  if(item.qty <= 0){
+    state.cart = state.cart.filter(i => i.id !== id);
   }
 
   saveCart();
   renderCart();
 }
 
-function increaseQty(productId){
-  const existing = state.cart.find(item => item.id === productId);
-  if(!existing) return;
-
-  existing.qty += 1;
-  saveCart();
-  renderCart();
-}
-
-function removeFromCart(productId){
-  state.cart = state.cart.filter(item => item.id !== productId);
+function removeFromCart(id){
+  state.cart = state.cart.filter(i => i.id !== id);
   saveCart();
   renderCart();
 }
@@ -1072,88 +881,61 @@ function clearCart(){
   state.cart = [];
   saveCart();
   renderCart();
-  showToast("Sepet temizlendi");
 }
 
-function getCartDetails(){
-  return state.cart
-    .map(cartItem => {
-      const product = products.find(item => item.id === cartItem.id);
-      if(!product) return null;
-
-      return {
-        ...product,
-        qty: cartItem.qty,
-        lineTotal: product.price * cartItem.qty
-      };
-    })
-    .filter(Boolean);
+function cartDetails(){
+  return state.cart.map(i => {
+    const p = products.find(product => product.id === i.id);
+    if(!p) return null;
+    return {...p, qty:i.qty, total:p.price * i.qty};
+  }).filter(Boolean);
 }
 
-function getCartTotal(){
-  return getCartDetails().reduce((sum, item) => sum + item.lineTotal, 0);
+function cartTotalPrice(){
+  return cartDetails().reduce((sum, i) => sum + i.total, 0);
 }
 
 function renderCart(){
-  const cartDetails = getCartDetails();
-  const totalQty = cartDetails.reduce((sum, item) => sum + item.qty, 0);
+  const list = cartDetails();
+  const count = list.reduce((sum, i) => sum + i.qty, 0);
 
-  cartCountTop.textContent = totalQty;
-  cartCountFloat.textContent = totalQty;
-  cartTotal.textContent = formatPrice(getCartTotal());
+  cartCountTop.textContent = count;
+  cartCountFloat.textContent = count;
+  cartTotal.textContent = formatPrice(cartTotalPrice());
 
-  if(cartDetails.length === 0){
-    cartItems.innerHTML = `
-      <div class="empty-state">
-        Sepetin boş. Menüden ürün ekleyebilirsin.
-      </div>
-    `;
+  if(list.length === 0){
+    cartItems.innerHTML = `<div class="empty-state">Sepetin boş.</div>`;
   }else{
-    cartItems.innerHTML = cartDetails.map(item => `
+    cartItems.innerHTML = list.map(i => `
       <div class="cart-item">
         <div class="cart-item-top">
           <div>
-            <div class="cart-item-name">${item.name}</div>
-            <div class="product-desc">${formatPrice(item.price)} x ${item.qty}</div>
+            <strong>${i.name}</strong>
+            <div class="product-desc">${formatPrice(i.price)} x ${i.qty}</div>
           </div>
-          <div class="cart-item-price">${formatPrice(item.lineTotal)}</div>
+          <strong style="color:var(--gold)">${formatPrice(i.total)}</strong>
         </div>
 
         <div class="qty-controls">
-          <div class="qty-group">
-            <button class="qty-btn" type="button" data-action="decrease" data-id="${item.id}" aria-label="${item.name} adet azalt">−</button>
-            <strong>${item.qty}</strong>
-            <button class="qty-btn" type="button" data-action="increase" data-id="${item.id}" aria-label="${item.name} adet artır">+</button>
+          <div>
+            <button class="qty-btn" onclick="decreaseQty('${i.id}')">−</button>
+            <strong>${i.qty}</strong>
+            <button class="qty-btn" onclick="increaseQty('${i.id}')">+</button>
           </div>
-
-          <button class="remove-btn" type="button" data-action="remove" data-id="${item.id}">
-            Sil
-          </button>
+          <button class="remove-btn" onclick="removeFromCart('${i.id}')">Sil</button>
         </div>
       </div>
     `).join("");
   }
 
-  cartItems.querySelectorAll("[data-action]").forEach(button => {
-    button.addEventListener("click", function(){
-      const id = this.dataset.id;
-      const action = this.dataset.action;
-
-      if(action === "increase") increaseQty(id);
-      if(action === "decrease") decreaseQty(id);
-      if(action === "remove") removeFromCart(id);
-    });
-  });
-
   updateWhatsappLink();
 }
 
 function updateWhatsappLink(){
-  const cartDetails = getCartDetails();
+  const list = cartDetails();
 
-  if(cartDetails.length === 0){
+  if(list.length === 0){
     whatsappOrder.href = `https://wa.me/${RESTAURANT.phone}?text=${encodeURIComponent("Merhaba, menüden sipariş vermek istiyorum.")}`;
-    whatsappOrder.setAttribute("aria-disabled", "true");
     return;
   }
 
@@ -1162,12 +944,12 @@ function updateWhatsappLink(){
   lines.push("");
   lines.push("Siparişim:");
 
-  cartDetails.forEach(item => {
-    lines.push(`- ${item.qty} adet ${item.name} = ${formatPrice(item.lineTotal)}`);
+  list.forEach(i => {
+    lines.push(`- ${i.qty} adet ${i.name} = ${formatPrice(i.total)}`);
   });
 
   lines.push("");
-  lines.push(`Toplam: ${formatPrice(getCartTotal())}`);
+  lines.push(`Toplam: ${formatPrice(cartTotalPrice())}`);
 
   const note = customerNote.value.trim();
   if(note){
@@ -1175,73 +957,33 @@ function updateWhatsappLink(){
     lines.push(`Not: ${note}`);
   }
 
-  lines.push("");
-  lines.push("Adres/teslimat bilgisini paylaşacağım.");
-
   whatsappOrder.href = `https://wa.me/${RESTAURANT.phone}?text=${encodeURIComponent(lines.join("\n"))}`;
-  whatsappOrder.removeAttribute("aria-disabled");
 }
 
 function openCart(){
-  cartOverlay.hidden = false;
-
-  requestAnimationFrame(() => {
-    cartOverlay.classList.add("show");
-    cartDrawer.classList.add("show");
-    cartDrawer.setAttribute("aria-hidden", "false");
-    document.getElementById("closeCart").focus();
-  });
+  cartOverlay.classList.add("show");
+  cartDrawer.classList.add("show");
 }
 
 function closeCart(){
   cartOverlay.classList.remove("show");
   cartDrawer.classList.remove("show");
-  cartDrawer.setAttribute("aria-hidden", "true");
-
-  setTimeout(() => {
-    cartOverlay.hidden = true;
-  }, 250);
 }
 
 function saveCart(){
   localStorage.setItem("altinsehirCart", JSON.stringify(state.cart));
 }
 
-function loadCart(){
-  try{
-    return JSON.parse(localStorage.getItem("altinsehirCart")) || [];
-  }catch(error){
-    return [];
-  }
-}
-
-let toastTimer;
-
 function showToast(message){
   toast.textContent = message;
   toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 1800);
-}
-
-function updateOpenStatus(){
-  const status = document.getElementById("openStatus");
-  const hour = new Date().getHours();
-
-  if(hour >= 10 && hour < 23){
-    status.textContent = "Şu an siparişe açığız";
-  }else{
-    status.textContent = "Mesaj bırakabilirsiniz";
-  }
+  setTimeout(() => toast.classList.remove("show"), 1600);
 }
 
 renderCategories();
 renderProducts();
 renderCart();
-updateOpenStatus();
 </script>
+
 </body>
 </html>
